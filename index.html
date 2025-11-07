@@ -5,25 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoRobot EA - $100/Day Trading Bot</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         :root {
-            --primary: #6c63ff;
-            --secondary: #ff6584;
-            --accent: #00d9ff;
-            --dark: #1a1a2e;
-            --darker: #0f0f1a;
-            --light: #f8f9fa;
-            --success: #4CAF50;
-            --warning: #ff9800;
-            --profit: #00e676;
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #f59e0b;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --profit: #22c55e;
+            --card-bg: rgba(30, 41, 59, 0.5);
+            --glass: rgba(255, 255, 255, 0.05);
         }
 
         body {
@@ -41,8 +44,9 @@
 
         /* Header Styles */
         header {
-            background: rgba(26, 26, 46, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             color: white;
             padding: 18px 0;
             position: fixed;
@@ -61,7 +65,7 @@
 
         .logo {
             font-size: 28px;
-            font-weight: 800;
+            font-weight: 900;
             display: flex;
             align-items: center;
             background: linear-gradient(45deg, var(--primary), var(--accent));
@@ -84,7 +88,7 @@
         }
 
         nav ul li a {
-            color: white;
+            color: #cbd5e1;
             text-decoration: none;
             font-weight: 500;
             transition: 0.3s;
@@ -93,7 +97,7 @@
         }
 
         nav ul li a:hover {
-            color: var(--accent);
+            color: white;
         }
 
         nav ul li a::after {
@@ -121,8 +125,10 @@
         /* Hero Section */
         .hero {
             padding: 180px 0 100px;
-            background: radial-gradient(circle at top right, rgba(108, 99, 255, 0.2), transparent 50%),
-                        radial-gradient(circle at bottom left, rgba(255, 101, 132, 0.15), transparent 50%);
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -136,7 +142,7 @@
             top: -50%;
             left: -50%;
             background: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
+            background-size: 40px 40px;
             animation: float 20s linear infinite;
             z-index: 0;
         }
@@ -156,42 +162,43 @@
         }
 
         .hero h1 {
-            font-size: 52px;
+            font-size: 3.5rem;
             margin-bottom: 20px;
             animation: fadeInUp 1s ease;
-            background: linear-gradient(45deg, #fff, var(--accent));
+            background: linear-gradient(45deg, #fff, var(--accent), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             line-height: 1.2;
+            font-weight: 900;
         }
 
         .hero p {
-            font-size: 20px;
+            font-size: 1.25rem;
             margin-bottom: 30px;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             animation: fadeInUp 1s ease 0.2s forwards;
             opacity: 0;
-            color: rgba(255, 255, 255, 0.8);
+            color: #cbd5e1;
         }
 
         .highlight {
-            color: var(--accent);
+            color: var(--secondary);
             font-weight: 700;
         }
 
         .cta-button {
             display: inline-block;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
             color: white;
             padding: 16px 45px;
-            border-radius: 50px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
             font-size: 18px;
-            transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
             animation: fadeInUp 1s ease 0.4s forwards;
             opacity: 0;
             border: none;
@@ -217,7 +224,7 @@
 
         .cta-button:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 25px rgba(108, 99, 255, 0.4);
+            box-shadow: 0 15px 25px rgba(99, 102, 241, 0.4);
         }
 
         .robot-animation {
@@ -231,7 +238,7 @@
         .robot-body {
             width: 140px;
             height: 170px;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--glass);
             border-radius: 20px;
             position: absolute;
             top: 50%;
@@ -245,7 +252,7 @@
         .robot-head {
             width: 100px;
             height: 70px;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--glass);
             border-radius: 15px 15px 0 0;
             position: absolute;
             top: -50px;
@@ -312,10 +319,10 @@
         }
 
         .dashboard-container {
-            background: rgba(26, 26, 46, 0.6);
+            background: var(--card-bg);
             border-radius: 20px;
             padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
             max-width: 900px;
@@ -360,13 +367,13 @@
 
         @keyframes pulse {
             0% {
-                box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.7);
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
             }
             70% {
-                box-shadow: 0 0 0 10px rgba(0, 230, 118, 0);
+                box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
             }
             100% {
-                box-shadow: 0 0 0 0 rgba(0, 230, 118, 0);
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
             }
         }
 
@@ -378,18 +385,18 @@
         }
 
         .profit-stat {
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--glass);
             border-radius: 15px;
             padding: 25px;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
         .profit-stat:hover {
             transform: translateY(-5px);
             background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(0, 217, 255, 0.2);
+            border-color: rgba(6, 182, 212, 0.2);
         }
 
         .profit-value {
@@ -402,12 +409,12 @@
         }
 
         .profit-label {
-            color: rgba(255, 255, 255, 0.7);
+            color: #94a3b8;
             font-size: 16px;
         }
 
         .profit-chart {
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--glass);
             border-radius: 15px;
             padding: 25px;
             height: 200px;
@@ -433,7 +440,7 @@
             left: 50%;
             transform: translateX(-50%);
             font-size: 12px;
-            color: rgba(255, 255, 255, 0.7);
+            color: #94a3b8;
         }
 
         /* Features Section */
@@ -447,15 +454,17 @@
         }
 
         .section-title h2 {
-            font-size: 36px;
+            font-size: 2.5rem;
             color: white;
             margin-bottom: 15px;
+            font-weight: 800;
         }
 
         .section-title p {
-            color: rgba(255, 255, 255, 0.7);
+            color: #94a3b8;
             max-width: 600px;
             margin: 0 auto;
+            font-size: 1.1rem;
         }
 
         .features-grid {
@@ -465,43 +474,162 @@
         }
 
         .feature-card {
-            background: rgba(26, 26, 46, 0.6);
-            border-radius: 15px;
-            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px 30px;
             text-align: center;
-            transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            border-color: rgba(0, 217, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border-color: rgba(6, 182, 212, 0.2);
         }
 
         .feature-icon {
             width: 80px;
             height: 80px;
             background: linear-gradient(45deg, var(--primary), var(--accent));
-            border-radius: 50%;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
             color: white;
             font-size: 30px;
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
         }
 
         .feature-card h3 {
             font-size: 22px;
             margin-bottom: 15px;
             color: white;
+            font-weight: 700;
         }
 
         .feature-card p {
-            color: rgba(255, 255, 255, 0.7);
+            color: #94a3b8;
+            line-height: 1.7;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .reviews-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .review-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .review-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: white;
+        }
+
+        .review-info p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .review-stars {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .review-text {
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .review-images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .review-image {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 120px;
+            background: var(--glass);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .review-image:hover {
+            transform: scale(1.05);
+            border-color: rgba(6, 182, 212, 0.3);
         }
 
         /* Pricing Section */
@@ -518,11 +646,11 @@
         }
 
         .pricing-card {
-            background: rgba(26, 26, 46, 0.6);
+            background: var(--card-bg);
             border-radius: 20px;
             padding: 40px 30px;
             text-align: center;
-            transition: 0.3s;
+            transition: all 0.3s ease;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -542,7 +670,7 @@
 
         .pricing-card.featured {
             transform: scale(1.05);
-            border-color: rgba(0, 217, 255, 0.3);
+            border-color: rgba(6, 182, 212, 0.3);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
@@ -561,7 +689,7 @@
 
         .pricing-card:hover {
             transform: translateY(-10px);
-            border-color: rgba(0, 217, 255, 0.3);
+            border-color: rgba(6, 182, 212, 0.3);
         }
 
         .pricing-card.featured:hover {
@@ -589,7 +717,7 @@
         }
 
         .pricing-period {
-            color: rgba(255, 255, 255, 0.7);
+            color: #94a3b8;
             font-size: 16px;
         }
 
@@ -603,35 +731,36 @@
             margin-bottom: 15px;
             padding-left: 30px;
             position: relative;
-            color: rgba(255, 255, 255, 0.8);
+            color: #cbd5e1;
         }
 
         .pricing-features li::before {
             content: '✓';
             position: absolute;
             left: 0;
-            color: var(--profit);
+            color: var(--success);
             font-weight: bold;
         }
 
         .pricing-button {
             display: block;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
             color: white;
             padding: 15px;
-            border-radius: 50px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
             font-size: 16px;
-            transition: 0.3s;
+            transition: all 0.3s ease;
             text-align: center;
             border: none;
             cursor: pointer;
             width: 100%;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
         }
 
         .pricing-button:hover {
-            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
             transform: translateY(-3px);
         }
 
@@ -658,11 +787,11 @@
             background: #25D366;
             color: white;
             padding: 18px 35px;
-            border-radius: 50px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
             font-size: 18px;
-            transition: 0.3s;
+            transition: all 0.3s ease;
             margin-top: 20px;
             box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
         }
@@ -674,7 +803,7 @@
 
         /* Footer */
         footer {
-            background: rgba(15, 15, 26, 0.95);
+            background: rgba(15, 23, 42, 0.95);
             color: white;
             padding: 60px 0 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -694,7 +823,7 @@
         }
 
         .footer-column p {
-            color: rgba(255, 255, 255, 0.7);
+            color: #94a3b8;
             line-height: 1.6;
             margin-bottom: 20px;
         }
@@ -708,7 +837,7 @@
         }
 
         .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
+            color: #94a3b8;
             text-decoration: none;
             transition: 0.3s;
         }
@@ -727,14 +856,14 @@
         .social-links a {
             width: 40px;
             height: 40px;
-            border-radius: 50%;
+            border-radius: 10px;
             background: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-decoration: none;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
         .social-links a:hover {
@@ -746,7 +875,7 @@
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: rgba(255, 255, 255, 0.5);
+            color: #64748b;
             font-size: 14px;
         }
 
@@ -766,7 +895,7 @@
         }
 
         .modal-content {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(15, 15, 26, 0.95));
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
             border-radius: 20px;
             padding: 40px;
             max-width: 500px;
@@ -795,7 +924,7 @@
             right: 20px;
             font-size: 24px;
             cursor: pointer;
-            color: rgba(255, 255, 255, 0.7);
+            color: #94a3b8;
             transition: 0.3s;
         }
 
@@ -815,23 +944,23 @@
         }
 
         .modal p {
-            color: rgba(255, 255, 255, 0.7);
+            color: #94a3b8;
             margin-bottom: 25px;
         }
 
         .modal-button {
             display: inline-block;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
             color: white;
             padding: 12px 30px;
-            border-radius: 50px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
         .modal-button:hover {
-            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
             transform: translateY(-3px);
         }
 
@@ -844,16 +973,48 @@
             margin: 20px 0;
             word-break: break-all;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--accent);
+        }
+
+        /* Image Modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .close-image-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            z-index: 3001;
         }
 
         /* Responsive Styles */
         @media (max-width: 992px) {
             .hero h1 {
-                font-size: 36px;
+                font-size: 2.5rem;
             }
             
             .hero p {
-                font-size: 18px;
+                font-size: 1.1rem;
             }
             
             nav ul {
@@ -869,7 +1030,7 @@
                 top: 70px;
                 left: 0;
                 width: 100%;
-                background: rgba(26, 26, 46, 0.95);
+                background: rgba(15, 23, 42, 0.95);
                 padding: 20px;
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
                 z-index: 999;
@@ -911,12 +1072,12 @@
                 padding: 150px 0 80px;
             }
             
-            .features, .pricing, .whatsapp {
+            .features, .pricing, .whatsapp, .reviews {
                 padding: 80px 0;
             }
             
             .section-title h2 {
-                font-size: 28px;
+                font-size: 2rem;
             }
             
             .pricing-price {
@@ -930,24 +1091,28 @@
 
         @media (max-width: 576px) {
             .hero h1 {
-                font-size: 28px;
+                font-size: 2rem;
             }
             
             .hero p {
-                font-size: 16px;
+                font-size: 1rem;
             }
             
             .cta-button, .pricing-button, .whatsapp-button {
-                padding: 12px 30px;
+                padding: 14px 30px;
                 font-size: 16px;
             }
             
-            .feature-card, .pricing-card {
-                padding: 20px;
+            .feature-card, .pricing-card, .review-card {
+                padding: 25px 20px;
             }
             
             .dashboard-container {
                 padding: 25px;
+            }
+            
+            .review-images {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -966,6 +1131,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#dashboard">Dashboard</a></li>
                         <li><a href="#features">Features</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
                         <li><a href="#pricing">Pricing</a></li>
                         <li><a href="#whatsapp">Contact</a></li>
                     </ul>
@@ -980,6 +1146,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#dashboard">Dashboard</a></li>
                 <li><a href="#features">Features</a></li>
+                <li><a href="#reviews">Reviews</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#whatsapp">Contact</a></li>
             </ul>
@@ -1084,6 +1251,91 @@
         </div>
     </section>
 
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div class="section-title">
+                <h2>User Reviews</h2>
+                <p>See what our customers are saying about AutoRobot EA</p>
+            </div>
+            <div class="reviews-container">
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">JS</div>
+                            <div class="review-info">
+                                <h4>John Smith</h4>
+                                <p>Trader | 3 months with AutoRobot</p>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-text">
+                            "I've been using AutoRobot for 3 months now and it has completely changed my life. I'm consistently making $100+ per day without having to stare at charts all day. The setup was easy and the support team is fantastic!"
+                        </div>
+                        <div class="review-images">
+                            <div class="review-image">Profit Screenshot 1</div>
+                            <div class="review-image">Profit Screenshot 2</div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">SD</div>
+                            <div class="review-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Beginner | 1 month with AutoRobot</p>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-text">
+                            "As a complete beginner to trading, I was hesitant at first. But AutoRobot made it so simple! I followed the instructions and within a week I was making consistent profits. Now I'm earning more than my day job!"
+                        </div>
+                        <div class="review-images">
+                            <div class="review-image">Profit Screenshot 3</div>
+                            <div class="review-image">Profit Screenshot 4</div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar">MR</div>
+                            <div class="review-info">
+                                <h4>Mike Rodriguez</h4>
+                                <p>Expert Trader | 6 months with AutoRobot</p>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-text">
+                            "I've tried many trading bots over the years, but AutoRobot is by far the most consistent and reliable. The risk management features are excellent, and I've been able to scale my account significantly since I started using it."
+                        </div>
+                        <div class="review-images">
+                            <div class="review-image">Profit Screenshot 5</div>
+                            <div class="review-image">Profit Screenshot 6</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing Section -->
     <section class="pricing" id="pricing">
         <div class="container">
@@ -1174,7 +1426,7 @@
                 <a href="https://whatsapp.com/channel/0029VbAq1T6H5JM6rgiSME0e" class="whatsapp-button" target="_blank">
                     <i class="fab fa-whatsapp"></i> Join Channel Now
                 </a>
-                <p style="margin-top: 20px; color: rgba(255,255,255,0.7);">For payment confirmation & support: <strong>+92 332 4151037</strong></p>
+                <p style="margin-top: 20px; color: #94a3b8;">For payment confirmation & support: <strong>+92 332 4151037</strong></p>
             </div>
         </div>
     </section>
@@ -1199,6 +1451,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#dashboard">Dashboard</a></li>
                         <li><a href="#features">Features</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
                         <li><a href="#pricing">Pricing</a></li>
                         <li><a href="#whatsapp">Contact</a></li>
                     </ul>
@@ -1236,13 +1489,19 @@
             <h2>Complete Your Purchase</h2>
             <p>To get <span id="selected-plan"></span>, please send payment to the following TRC20 address:</p>
             <div class="wallet-address" id="trc20-address">
-                TYsg87d9a8s7df6a9s8d7f6a9s8d7f6a9s8
+                TFQfhTRs8gcHLhyCR4v36BR7dqU3hgjPqp
             </div>
             <p>After payment, send screenshot to WhatsApp <strong>+92 332 4151037</strong> to receive your AutoRobot EA.</p>
             <a href="https://wa.me/923324151037?text=Hello%20Ibrahim,%20I%20just%20purchased%20the%20" class="modal-button" target="_blank" id="whatsapp-link">
                 <i class="fab fa-whatsapp"></i> Send Payment Proof
             </a>
         </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div class="image-modal" id="image-modal">
+        <span class="close-image-modal">&times;</span>
+        <img class="image-modal-content" id="modal-image">
     </div>
 
     <script>
@@ -1356,6 +1615,30 @@
                     activeUsersElement.textContent = activeUsers.toLocaleString();
                 }
             }, 5000);
+        });
+
+        // Image Modal
+        const imageModal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        const closeImageModal = document.querySelector('.close-image-modal');
+        
+        document.querySelectorAll('.review-image').forEach(image => {
+            image.addEventListener('click', () => {
+                // In a real implementation, you would set the src to the actual image
+                modalImage.src = '#'; // Placeholder
+                modalImage.alt = image.textContent;
+                imageModal.style.display = 'flex';
+            });
+        });
+        
+        closeImageModal.addEventListener('click', () => {
+            imageModal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === imageModal) {
+                imageModal.style.display = 'none';
+            }
         });
 
         // Animate chart bars on scroll
